@@ -1,0 +1,6 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Access to an undefined property Livewire\\\\Component\\:\\:\\$gRecaptchaResponse\\.$#"
+			count: 1
+			path: src/ValidatesRecaptcha.php

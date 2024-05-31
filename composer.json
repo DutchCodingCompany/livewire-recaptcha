@@ -1,0 +1,41 @@
+{
+    "name": "dutchcodingcompany/livewire-recaptcha",
+    "description": "Add Google Recaptcha V3 support to your Laravel Livewire components",
+    "keywords": [
+        "DutchCodingCompany",
+        "Livewire",
+        "Google ReCaptcha",
+        "Laravel"
+    ],
+    "homepage": "https://github.com/dutchcodingcompany/filament-socialite",
+    "license": "MIT",
+    "require": {
+        "php": "^8.0",
+        "livewire/livewire": "3.*"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.8",
+        "larastan/larastan": "^2.9",
+        "orchestra/testbench": "^8.0|^9.0",
+        "phpunit/phpunit": "^11.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "DutchCodingCompany\\LivewireRecaptcha\\": "src/",
+            "DutchCodingCompany\\LivewireRecaptcha\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "phpstan": "vendor/bin/phpstan analyse",
+        "test": "vendor/bin/phpunit",
+        "php-cs-fixer": "vendor/bin/php-cs-fixer fix"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "DutchCodingCompany\\LivewireRecaptcha\\LivewireRecaptchaServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "stable"
+}

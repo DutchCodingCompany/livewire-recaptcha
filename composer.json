@@ -10,13 +10,13 @@
     "homepage": "https://github.com/dutchcodingcompany/filament-socialite",
     "license": "MIT",
     "require": {
-        "php": "^8.0",
-        "livewire/livewire": "3.*"
+        "php": "^8.2",
+        "livewire/livewire": "^3.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.8",
         "larastan/larastan": "^2.9",
-        "orchestra/testbench": "^8.0|^9.0",
+        "orchestra/testbench": "^9.0",
         "phpunit/phpunit": "^11.1"
     },
     "autoload": {

@@ -3,8 +3,8 @@
 namespace DutchCodingCompany\LivewireRecaptcha;
 
 use Attribute;
-use DutchCodingCompany\LivewireRecaptcha\Exceptions\LivewireRecaptchaException;
 use Closure;
+use DutchCodingCompany\LivewireRecaptcha\Exceptions\LivewireRecaptchaException;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Validation\ValidationException;

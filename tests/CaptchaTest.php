@@ -51,7 +51,8 @@ class CaptchaTest extends TestCase
     public static function provideCaptchaData(): array
     {
         return [
-            'valid response' => [true, ['success' => true]],
+            'valid response' => [true, ['success' => true, 'score' => 0.9]],
+            'valid response, low score' => [false, ['success' => true, 'score' => 0.1]],
             'invalid response' => [false, ['success' => false]],
         ];
     }

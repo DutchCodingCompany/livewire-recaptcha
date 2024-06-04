@@ -32,10 +32,10 @@ class TestCase extends Orchestra
             Encrypter::generateKey('AES-256-CBC')
         ));
 
-        config()->set('services.github', [
-            'client_id' => 'abcdmockedabcd',
-            'client_secret' => 'defgmockeddefg',
-            'redirect' => 'http://localhost/oauth/callback/github',
+        config()->set('services.google.recaptcha', [
+            'site_key' => 'mysitekey',
+            'secret_key' => 'mysecretkey',
+            'version' => 'v3',
         ]);
     }
 }

@@ -1,10 +1,9 @@
-<script src="https://www.google.com/recaptcha/api.js?render=__SITEKEY__"></script>
 <script>
     document.addEventListener('livewire:init', () => {
         Livewire.directive('recaptcha', ({ el, directive, component, cleanup }) => {
             const submitExpression = (() => {
-                for(const attr of el.attributes) {
-                    if(attr.name.startsWith('wire:submit')) {
+                for (const attr of el.attributes) {
+                    if (attr.name.startsWith('wire:submit')) {
                         return attr.value;
                     }
                 }
@@ -14,11 +13,11 @@
                 e.preventDefault();
                 e.stopImmediatePropagation();
 
-                grecaptcha.ready(() => {
-                    grecaptcha.execute('__SITEKEY__', {action: 'submit'}).then((token) => {
-                        component.$wire.$set('gRecaptchaResponse', token).then(() => {
-                            Alpine.evaluate(el, "$wire." + submitExpression, { scope: { $event: e } });
-                        });
+                grecaptcha.ready(async () => {
+                    const token = await grecaptcha.execute(@json($siteKey), { action: 'submit' });
+
+                    component.$wire.$set('gRecaptchaResponse', token).then(() => {
+                        Alpine.evaluate(el, "$wire." + submitExpression, { scope: { $event: e } });
                     });
                 });
             }
@@ -27,3 +26,4 @@
         });
     });
 </script>
+<script src="https://www.google.com/recaptcha/api.js?render={{ $siteKey }}"></script>

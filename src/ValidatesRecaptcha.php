@@ -4,8 +4,6 @@ namespace DutchCodingCompany\LivewireRecaptcha;
 
 use Attribute;
 use Closure;
-use DutchCodingCompany\LivewireRecaptcha\Exceptions\LivewireRecaptchaException;
-use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Validation\ValidationException;
 use Livewire\Features\SupportAttributes\Attribute as LivewireAttribute;
@@ -16,27 +14,11 @@ use function Livewire\wrap;
 class ValidatesRecaptcha extends LivewireAttribute
 {
     public function __construct(
-        public ?string $siteKey = null,
         public ?string $secretKey = null,
+        public ?float $score = null,
     ) {
-        $this->siteKey ??= config('services.google.recaptcha.site_key');
         $this->secretKey ??= config('services.google.recaptcha.secret_key');
-    }
-
-    public function boot(): void
-    {
-        Blade::directive(
-            'livewireRecaptcha',
-            function (string $expression) {
-                $siteKey = ! empty($expression) ? str_replace(['"', '\''], '', $expression) : $this->siteKey;
-
-                return str_replace(
-                    '__SITEKEY__',
-                    e($siteKey),
-                    file_get_contents($path = __DIR__.'/directive.recaptcha.php') ?: throw new LivewireRecaptchaException("Failed to load '$path'."),
-                );
-            },
-        );
+        $this->score ??= config('services.google.recaptcha.score') ?? 0.5;
     }
 
     /**
@@ -46,13 +28,16 @@ class ValidatesRecaptcha extends LivewireAttribute
      */
     public function call(array $params, Closure $returnEarly): void
     {
-        $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
-            'secret' => $this->secretKey,
-            'response' => $this->component->gRecaptchaResponse,
-            'remoteip' => request()->ip(),
-        ])->json();
+        if (isset($this->component->gRecaptchaResponse)) {
+            $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+                'secret' => $this->secretKey,
+                'response' => $this->component->gRecaptchaResponse,
+                'remoteip' => request()->ip(),
+            ])->json();
+        }
 
-        if ($response['success'] ?? false) {
+        // Check success value and score. The score falls back to 1 since it is not present for v2.
+        if (($response['success'] ?? false) && ($response['score'] ?? 1) >= $this->score) {
             $returnEarly(
                 wrap($this->component)->{$this->subName}(...$params)
             );

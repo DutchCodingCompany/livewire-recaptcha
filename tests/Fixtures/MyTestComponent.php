@@ -15,7 +15,7 @@ class MyTestComponent extends Component
         //
     }
 
-    #[ValidatesRecaptcha(siteKey: 'mysitekey', secretKey: 'mysecretkey')]
+    #[ValidatesRecaptcha]
     public function save(): void
     {
         //

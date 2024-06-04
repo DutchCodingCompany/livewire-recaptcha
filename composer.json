@@ -7,7 +7,7 @@
         "Google ReCaptcha",
         "Laravel"
     ],
-    "homepage": "https://github.com/dutchcodingcompany/filament-socialite",
+    "homepage": "https://github.com/dutchcodingcompany/livewire-recaptcha",
     "license": "MIT",
     "require": {
         "php": "^8.2",

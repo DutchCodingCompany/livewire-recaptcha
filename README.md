@@ -113,10 +113,10 @@ You can override any of the configuration values using:
 
 ```html
 @livewireRecaptcha(
-version: 'v2',
-siteKey: 'abcd_efgh-hijk_LMNOP',
-theme: 'dark',
-size: 'compact',
+    version: 'v2',
+    siteKey: 'abcd_efgh-hijk_LMNOP',
+    theme: 'dark',
+    size: 'compact',
 )
 ```
 

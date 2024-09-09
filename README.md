@@ -58,11 +58,10 @@ In your Livewire component, at your form submission method, add the `#[Validates
 
 ```php
 use Livewire\Component;
+use DutchCodingCompany\LivewireRecaptcha\ValidatesRecaptcha;
 
 class SomeComponent extends Component 
 {
-    use DutchCodingCompany\LivewireRecaptcha\ValidatesRecaptcha;
-    
     // (optional) Set a response property on your component.
     // If not given, the `gRecaptchaResponse` property is dynamically assigned.
     public string $gRecaptchaResponse;

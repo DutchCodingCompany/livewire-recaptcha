@@ -1,8 +1,9 @@
 # Livewire ReCAPTCHA v3/v2/v2-invisible
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/dutchcodingcompany/livewire-recaptcha.svg?style=flat-square)](https://packagist.org/packages/dutchcodingcompany/livewire-recaptcha)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/dutchcodingcompany/livewire-recaptcha/run-tests?label=tests)](https://github.com/dutchcodingcompany/livewire-recaptcha/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/dutchcodingcompany/livewire-recaptcha/Check%20&%20fix%20styling?label=code%20style)](https://github.com/dutchcodingcompany/livewire-recaptcha/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/dutchcodingcompany/livewire-recaptcha/run-tests.yml?branch=main&label=tests)](https://github.com/dutchcodingcompany/livewire-recaptcha/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/dutchcodingcompany/livewire-recaptcha/php-cs-fixer.yml?branch=main&label=style)](https://github.com/dutchcodingcompany/livewire-recaptcha/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
+[![GitHub PHPStan Action Status](https://img.shields.io/github/actions/workflow/status/dutchcodingcompany/livewire-recaptcha/phpstan.yml?branch=main&label=phpstan)](https://github.com/DutchCodingCompany/livewire-recaptcha/actions?query=workflow%3APHPStan++branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/dutchcodingcompany/livewire-recaptcha.svg?style=flat-square)](https://packagist.org/packages/dutchcodingcompany/livewire-recaptcha)
 
 This package provides a custom Livewire directive to protect your Livewire functions with a _Google reCAPTCHA (v2 + v2

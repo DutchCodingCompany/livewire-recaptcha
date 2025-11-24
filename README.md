@@ -22,11 +22,12 @@ version you are going to implement.
 
 This package supports the following versions. Note that each version requires a different sitekey/secretkey pair:
 
-| **Version**          | **Docs**                                                          | **Notes**                   |
-|----------------------|-------------------------------------------------------------------|-----------------------------|
-| **v3** (recommended) | [V3 Docs](https://developers.google.com/recaptcha/docs/v3)        |                             |
-| **v2**               | [V2 Docs](https://developers.google.com/recaptcha/docs/display)   |                             |
-| **v2 invisible**     | [V2 Docs](https://developers.google.com/recaptcha/docs/invisible) | Use `'size' => 'invisible'` |
+| **Version**          | **Docs**                                                          | **Notes**                         |
+|----------------------|-------------------------------------------------------------------|-----------------------------------|
+| **v3** (recommended) | [V3 Docs](https://developers.google.com/recaptcha/docs/v3)        |                                   |
+| **v3** (enterprise)  | [V3 Docs](https://developers.google.com/recaptcha/docs/v3)        | Use `'version' => 'v3-enterprise'` |
+| **v2**               | [V2 Docs](https://developers.google.com/recaptcha/docs/display)   |                                   |
+| **v2 invisible**     | [V2 Docs](https://developers.google.com/recaptcha/docs/invisible) | Use `'size' => 'invisible'`       |
 
 Your options should reside in the `config/services.php` file:
 
@@ -38,6 +39,7 @@ Your options should reside in the `config/services.php` file:
             'secret_key' => env('GOOGLE_RECAPTCHA_SECRET_KEY'),
             'version' => 'v3',
             'score' => 0.5, // An integer between 0 and 1, that indicates the minimum score to pass the Captcha challenge.
+            'endpoint' => 'https://www.google.com/recaptcha/api/siteverify', // For enterprise users, fill in your URL from google console (https://recaptchaenterprise.googleapis.com/v1/projects/project-name/assessments?key=API_KEY
         ],
     ],
 
@@ -113,10 +115,10 @@ You can override any of the configuration values using:
 
 ```html
 @livewireRecaptcha(
-    version: 'v2',
-    siteKey: 'abcd_efgh-hijk_LMNOP',
-    theme: 'dark',
-    size: 'compact',
+version: 'v2',
+siteKey: 'abcd_efgh-hijk_LMNOP',
+theme: 'dark',
+size: 'compact',
 )
 ```
 

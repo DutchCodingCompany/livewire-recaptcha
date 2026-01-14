@@ -26,6 +26,10 @@
                 }
             })();
 
+            const gRecaptchaResponseVariable = directive.expression 
+                ? `${directive.expression}.gRecaptchaResponse` 
+                : 'gRecaptchaResponse';
+
             const onSubmit = async (e) => {
                 e.preventDefault();
                 e.stopImmediatePropagation();
@@ -36,7 +40,7 @@
 
                 const token = await window.googleRecaptchaResponse;
 
-                await component.$wire.$set('gRecaptchaResponse', token);
+                await component.$wire.$set(gRecaptchaResponseVariable, token);
 
                 Alpine.evaluate(el, "$wire." + submitExpression, { scope: { $event: e } });
             }

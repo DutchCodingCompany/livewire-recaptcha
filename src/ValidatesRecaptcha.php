@@ -16,9 +16,11 @@ class ValidatesRecaptcha extends LivewireAttribute
     public function __construct(
         public ?string $secretKey = null,
         public ?float $score = null,
+        public ?string $endpoint = null,
     ) {
         $this->secretKey ??= config('services.google.recaptcha.secret_key');
         $this->score ??= config('services.google.recaptcha.score') ?? 0.5;
+        $this->endpoint ??= config('services.google.recaptcha.endpoint', 'https://www.google.com/recaptcha/api/siteverify');
     }
 
     /**
@@ -28,8 +30,10 @@ class ValidatesRecaptcha extends LivewireAttribute
      */
     public function call(array $params, Closure $returnEarly): void
     {
+        assert(is_string($this->endpoint));
+
         if (isset($this->component->gRecaptchaResponse)) {
-            $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+            $response = Http::asForm()->post($this->endpoint, [
                 'secret' => $this->secretKey,
                 'response' => $this->component->gRecaptchaResponse,
                 'remoteip' => request()->ip(),

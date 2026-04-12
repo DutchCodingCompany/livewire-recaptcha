@@ -15,10 +15,10 @@ class LivewireRecaptcha
      * @return string
      */
     public static function directive(
-        string $version = null,
-        string $siteKey = null,
-        string $theme = null,
-        string $size = null,
+        ?string $version = null,
+        ?string $siteKey = null,
+        ?string $theme = null,
+        ?string $size = null,
     ): string {
         $version ??= config('services.google.recaptcha.version') ?? 'v3';
 

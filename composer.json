@@ -17,7 +17,7 @@
         "friendsofphp/php-cs-fixer": "^3.8",
         "larastan/larastan": "^2.9|^3.0",
         "orchestra/testbench": "^9.0|^10.0",
-        "phpunit/phpunit": "^13.0"
+        "phpunit/phpunit": "^11.1"
     },
     "autoload": {
         "psr-4": {

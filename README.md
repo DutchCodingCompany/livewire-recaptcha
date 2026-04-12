@@ -102,6 +102,10 @@ Secondly, add the new directive `wire:recaptcha` to the form element that you wa
 <!-- Add the `wire:recaptcha` Livewire directive -->
 <form wire:submit="save" wire:recaptcha>
     <!-- The rest of your form -->
+
+    <!-- When using version 2, insert the placeholder element -->
+    <div id="g-recaptcha-element"></div>
+
     <button type="submit">Submit</button>
 </form>
 

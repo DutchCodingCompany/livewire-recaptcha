@@ -39,7 +39,7 @@ Your options should reside in the `config/services.php` file:
             'secret_key' => env('GOOGLE_RECAPTCHA_SECRET_KEY'),
             'version' => 'v3',
             'score' => 0.5, // An integer between 0 and 1, that indicates the minimum score to pass the Captcha challenge.
-            'endpoint' => 'https://www.google.com/recaptcha/api/siteverify', // For enterprise users, fill in your URL from google console (https://recaptchaenterprise.googleapis.com/v1/projects/project-name/assessments?key=API_KEY
+            'endpoint' => 'https://www.google.com/recaptcha/api/siteverify', // For enterprise users, fill in your URL from Google Console.
         ],
     ],
 

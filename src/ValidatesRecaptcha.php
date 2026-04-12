@@ -30,6 +30,8 @@ class ValidatesRecaptcha extends LivewireAttribute
      */
     public function call(array $params, Closure $returnEarly): void
     {
+        assert(is_string($this->endpoint));
+
         if (isset($this->component->gRecaptchaResponse)) {
             $response = Http::asForm()->post($this->endpoint, [
                 'secret' => $this->secretKey,
